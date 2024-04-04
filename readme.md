@@ -17,11 +17,9 @@ Have a modern version of Node.installed. Last check was with v20.11
 ## Starting the app
 
 - After you did set up your application, run `npm run build` to compile it. If there are no erros, there should be a "build"-folder in your project folder
-- take a look at `index.html` - it should already have a script file containing the result of your build folder
+- take a look at `index.html` - it should already have a script file connected to your TypeScript (The browser can only run JavaScript)
 -
 
-Write any source files in typescript inside the source folder, the main file being index.ts as entry file for rollup.
+Write any source files in typescript inside the source folder, the main file being index.ts as entry file for vite.
 
-Type tsc to javascript
-
-Link your compiled bundle.js into your HTML-Files.
+run `npm run preview` to preview your executed build

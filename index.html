@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="./build/bundle.js"></script>
-</head>
+    <!--ACHTUNG - DAS GEHT NUR WEGEN VITE! IN "ECHT" KANN KEIN TS IM BROWSER AUSGEFÜHRT WERDEN -->
+    <script defer type="module" src="/src/index.ts"></script>
+  </head>
 
-<body>
-    <my-beispiel></my-beispiel>
-    <input type="text" id="myInput" />
-</body>
-
+  <body>
+    <label for="myInput">Type something:</label>
+    <input name="myInput" type="text" id="myInput" />
+  </body>
 </html>

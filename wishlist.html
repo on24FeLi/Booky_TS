@@ -1,0 +1,245 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alice&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alice&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/style/wishlist.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="navbar"></ul>
+    <div class="main-content">
+        <div id="weekPopup" class="hidden popup-overlay">
+            <div class="popup-content">
+              <h2>In der nächsten Zeit:</h2>
+              <ul id="popupBookList"></ul>
+              <button onclick="document.getElementById('weekPopup').classList.add('hidden')">Schließen</button>
+            </div>
+          </div>
+      <div class="row">
+        <h1>Wunschliste</h1>
+        <div class="thingsontheRightSide">
+          <button class="plusButton" id="openFormBtn">
+            <img src="./public/add.png" alt="" />
+          </button>
+          <p id="totalPrice">Price: 0€</p>
+          <p id="totalCount">Total: 0</p>
+        </div>
+      </div>
+      <div class="row2">
+        <button id="openFilterBtn" class="plusButton">
+          <img src="./public/filter.png" alt="filter" height="20" />
+        </button>
+        <div id="filterPopup" class="filter-popup hidden">
+          <h2>Filtern</h2>
+          <div class="filter-options">
+            <label for="genreSelect">Nach Genre filtern:</label>
+            <select id="genreSelect">
+              <option value="">Alle Genres</option>
+              <option value="Krimi">Krimi</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Horror">Horror</option>
+              <option value="True Crime">True Crime</option>
+              <option value="Liebesroman">Liebesroman</option>
+              <option value="Humor / Komödie">Humor / Komödie</option>
+              <option value="Sachbuch">Sachbuch</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Science-Fiction">Science-Fiction</option>
+              <option value="Dystopie/Utopie">Dystopie/Utopie</option>
+              <option value="Roman">Roman</option>
+              <option value="Kinderbuch">Kinderbuch</option>
+              <option value="Jugendbuch">Jugendbuch</option>
+              <option value="Young Adult (YA)">Young Adult (YA)</option>
+              <option value="New Adult">New Adult</option>
+            </select>
+
+            <label for="sortSelect">Sortierung:</label>
+            <select id="sortSelect">
+              <option value="">Keine</option>
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+              <option value="price-asc">Preis aufsteigend</option>
+<option value="price-desc">Preis absteigend</option>
+<option value="date-asc">Erscheinungsdatum aufsteigend</option>
+<option value="date-desc">Erscheinungsdatum absteigend</option>
+            </select>
+            <button id="applyFilterBtn">Filter anwenden</button>
+          </div>
+        </div>
+
+        <div id="floatingForm" class="floating-form hidden">
+          <form   id="wishForm">
+            <div class="book-name-row">
+              <label for="book_Name">Name des Buches:</label>
+              <input type="text" id="book_Name" name="book_Name" />
+            </div>
+
+            <div class="book-name-row">
+              <label for="bookPreis">Preis:</label>
+              <input type="number" id="bookPreis" name="bookPreis" />
+            </div>
+
+            <div class="book-name-row">
+              <label for="bookPublish">Erscheinungsdatum:</label>
+              <input type="date" id="bookPublish" name="bookPublish" />
+            </div>
+
+            <h2>Genre:</h2>
+            <div class="genreBox">
+              <div class="genre-columns">
+                <div class="genre-column">
+                  <h3>Spannung</h3>
+                  <input
+                    type="checkbox"
+                    id="krimi"
+                    name="krimi"
+                    value="genreKrimi"
+                  />
+                  <label for="krimi"> Krimi</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="thriller"
+                    name="thriller"
+                    value="genreThriller"
+                  />
+                  <label for="thriller"> Thriller</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="mystery"
+                    name="mystery"
+                    value="genreMystery"
+                  />
+                  <label for="mystery"> Mystery</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="horror"
+                    name="horror"
+                    value="genreHorror"
+                  />
+                  <label for="horror"> Horror</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="truecrime"
+                    name="truecrime"
+                    value="genreTrueCrime"
+                  />
+                  <label for="truecrime"> True Crime</label><br />
+
+                  <h3>Liebe, Leben & Emotion</h3>
+                  <input
+                    type="checkbox"
+                    id="liebe"
+                    name="liebe"
+                    value="genreLiebe"
+                  />
+                  <label for="liebe"> Liebesroman</label><br />
+                  <h3>Humor</h3>
+                  <input
+                    type="checkbox"
+                    id="humor"
+                    name="humor"
+                    value="genreHumor"
+                  />
+                  <label for="humor"> Humor / Komödie</label><br />
+                  <h3>Sachbuch</h3>
+                  <input
+                    type="checkbox"
+                    id="biografie"
+                    name="biografie"
+                    value="genreBiografie"
+                  />
+                  <label for="biografie"> Sachbuch</label><br />
+                </div>
+                <div class="genre-column">
+                  <h3>Fantasy & Science-Fiction</h3>
+                  <input
+                    type="checkbox"
+                    id="fantasy"
+                    name="fantasy"
+                    value="genreFantasy"
+                  />
+                  <label for="fantasy"> Fantasy</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="scifi"
+                    name="scifi"
+                    value="genreSciFi"
+                  />
+                  <label for="scifi"> Science-Fiction</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="dystopie"
+                    name="dystopie"
+                    value="genreDystopie"
+                  />
+                  <label for="dystopie"> Dystopie/Utopie</label><br />
+
+                  <h3>Abenteuer & Historisches</h3>
+                  <input
+                    type="checkbox"
+                    id="roman"
+                    name="roman"
+                    value="genreRoman"
+                  />
+                  <label for="roman"> Roman</label><br />
+                  <h3>Kinder- und Jugendbuch</h3>
+                  <input
+                    type="checkbox"
+                    id="kinderbuch"
+                    name="kinderbuch"
+                    value="genreKinderbuch"
+                  />
+                  <label for="kinderbuch"> Kinderbuch</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="jugendbuch"
+                    name="jugendbuch"
+                    value="genreJugendbuch"
+                  />
+                  <label for="jugendbuch"> Jugendbuch</label><br />
+
+                  <input type="checkbox" id="ya" name="ya" value="genreYA" />
+                  <label for="ya"> Young Adult (YA)</label><br />
+
+                  <input
+                    type="checkbox"
+                    id="newadult"
+                    name="newadult"
+                    value="genreNewAdult"
+                  />
+                  <label for="newadult"> New Adult</label><br />
+                </div>
+              </div>
+            </div>
+            <p></p>
+            <input class="addBook" type="submit" value="Buch hinzufügen" />
+          </form>
+        </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Suchen..." />
+          <img src="./public/suche.png" alt="suchicon" />
+        </div>
+      </div>
+      <div id="wishbookList">
+        <ul id="wishlist"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="./src/wishlist.ts"></script>
+  </body>
+</html>
